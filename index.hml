@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smithen Elite Soft Washing LLC</title>
+  <meta name="description" content="Top-rated pressure washing and soft washing services for homeowners in the USA. Book now with Smithen Elite Soft Washing LLC.">
+  <meta name="keywords" content="Pressure Washing, Soft Washing, House Washing, Exterior Cleaning, Power Washing, Roof Cleaning, Driveway Washing, USA Cleaning Services">
+  <meta name="author" content="Smithen Elite Soft Washing LLC">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div id="loader" class="loading-screen">🇺🇸 Loading Smithen Elite...</div>
+
+  <header>
+    <h1>Smithen Elite Soft Washing LLC 🇺🇸</h1>
+    <nav>
+      <ul>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <button class="music-toggle" id="musicBtn">🔊 Rain Sounds</button>
+  <canvas id="rainCanvas"></canvas>
+
+  <main>
+    <section class="hero">
+      <h2>Your Home Deserves Elite Care</h2>
+      <p>Specializing in soft washing & pressure washing for homeowners who demand results.</p>
+      <a href="#contact" class="btn-primary">Get a Free Quote</a>
+    </section>
+
+    <section id="services">
+      <h2>Our Services</h2>
+      <ul class="services-list">
+        <li>🏡 House Washing</li>
+        <li>🧼 Roof Cleaning</li>
+        <li>🧽 Driveway & Sidewalk Cleaning</li>
+        <li>🪟 Window & Gutter Cleaning</li>
+      </ul>
+    </section>
+
+    <section id="about">
+      <h2>About Us</h2>
+      <p>Veteran-owned and proudly serving our American community 🇺🇸. Smithen Elite delivers high-quality, eco-friendly soft washing and pressure washing.</p>
+    </section>
+
+    <section id="contact">
+      <h2>Contact Us</h2>
+      <form>
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Email" required>
+        <textarea placeholder="Your Message"></textarea>
+        <button type="submit">Send</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Smithen Elite Soft Washing LLC | Serving with pride 🇺🇸</p>
+  </footer>
+
+  <script src="js/scripts.js"></script>
+</body>
+</html>
