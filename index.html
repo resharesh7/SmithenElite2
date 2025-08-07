@@ -143,7 +143,7 @@
 
     <section id="about">
       <h2>About Us</h2>
-      <p>Veteran-owned and proudly serving our American community 🇺🇸. Smithen Elite delivers high-quality, eco-friendly soft washing and pressure washing.</p>
+      <p>Proudly serving our American community 🇺🇸. Smithen Elite delivers high-quality, Elite Soft washing/Pressure washing.</p>
     </section>
 
     <section id="contact">
@@ -166,11 +166,18 @@
     Your browser does not support the audio element.
   </audio>
 
-  <script>
-    // Loading screen
-    window.addEventListener('load', () => {
-      document.getElementById('loader').style.display = 'none';
-    });
+ <script>
+  // Wait until everything is loaded
+  window.addEventListener("load", () => {
+    const loader = document.getElementById("loader");
+
+    setTimeout(() => {
+      loader.style.opacity = "0";
+      loader.style.visibility = "hidden";
+    }, 5000); // 
+  });
+
+
 
     // Rain sound toggle
     const rainAudio = document.getElementById("rainAudio");
