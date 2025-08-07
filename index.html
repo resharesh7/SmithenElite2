@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Smithen Elite Soft Washing LLC 🇺🇸</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #001f3f;
+      color: white;
+    }
+    header {
+      background-color: #003366;
+      padding: 20px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+      color: white;
+    }
+    nav ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+    nav a {
+      color: #ff4136;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .hero {
+      text-align: center;
+      padding: 60px 20px;
+      background-color: #002244;
+    }
+    .btn-primary {
+      background-color: #ff4136;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    section {
+      padding: 40px 20px;
+      text-align: center;
+    }
+    footer {
+      background-color: #003366;
+      text-align: center;
+      padding: 20px;
+    }
+    form input, form textarea {
+      display: block;
+      margin: 10px auto;
+      padding: 10px;
+      width: 80%;
+      max-width: 400px;
+      border-radius: 5px;
+      border: none;
+    }
+    form button {
+      background-color: #ff4136;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    .music-toggle {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      background: #ff4136;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      z-index: 999;
+      cursor: pointer;
+    }
+    #loader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #001f3f;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 2rem;
+      z-index: 1000;
+      color: white;
+    }
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+  </style>
+</head>
+<body>
+  <div id="loader">🇺🇸 Loading Smithen Elite...</div>
+
+  <button class="music-toggle" id="musicBtn">🔊 Rain Sounds</button>
+  <canvas id="rainCanvas"></canvas>
+
+  <header>
+    <h1>Smithen Elite Soft Washing LLC 🇺🇸</h1>
+    <nav>
+      <ul>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h2>Your Home Deserves Elite Care</h2>
+      <p>Specializing in soft washing & pressure washing for homeowners who demand results.</p>
+      <a href="#contact" class="btn-primary">Get a Free Quote</a>
+    </section>
+
+    <section id="services">
+      <h2>Our Services</h2>
+      <ul>
+        <li>🏡 House Washing</li>
+        <li>🧼 Roof Cleaning</li>
+        <li>🧽 Driveway & Sidewalk Cleaning</li>
+        <li>🪟 Window & Gutter Cleaning</li>
+      </ul>
+    </section>
+
+    <section id="about">
+      <h2>About Us</h2>
+      <p>Veteran-owned and proudly serving our American community 🇺🇸. Smithen Elite delivers high-quality, eco-friendly soft washing and pressure washing.</p>
+    </section>
+
+    <section id="contact">
+      <h2>Contact Us</h2>
+      <form>
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea placeholder="Your Message" rows="4" required></textarea>
+        <button type="submit">Send</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Smithen Elite Soft Washing LLC | Serving with pride 🇺🇸</p>
+  </footer>
+
+  <audio id="rainAudio" loop>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-17.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <script>
+    // Loading screen
+    window.addEventListener('load', () => {
+      document.getElementById('loader').style.display = 'none';
+    });
+
+    // Rain sound toggle
+    const rainAudio = document.getElementById("rainAudio");
+    const musicBtn = document.getElementById("musicBtn");
+    let isPlaying = false;
+
+    musicBtn.addEventListener("click", () => {
+      isPlaying ? rainAudio.pause() : rainAudio.play();
+      isPlaying = !isPlaying;
+      musicBtn.textContent = isPlaying ? "🔇 Stop Rain Sounds" : "🔊 Rain Sounds";
+    });
+
+    // Rain animation
+    const canvas = document.getElementById("rainCanvas");
+    const ctx = canvas.getContext("2d");
+    let width = canvas.width = window.innerWidth;
+    let height = canvas.height = window.innerHeight;
+    let raindrops = [];
+
+    function createRaindrops(count) {
+      for (let i = 0; i < count; i++) {
+        raindrops.push({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          length: Math.random() * 20 + 10,
+          speed: Math.random() * 3 + 2
+        });
+      }
+    }
+
+    function drawRain() {
+      ctx.clearRect(0, 0, width, height);
+      ctx.strokeStyle = 'rgba(255,255,255,0.4)';
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      for (let drop of raindrops) {
+        ctx.moveTo(drop.x, drop.y);
+        ctx.lineTo(drop.x, drop.y + drop.length);
+      }
+      ctx.stroke();
+      moveRain();
+    }
+
+    function moveRain() {
+      for (let drop of raindrops) {
+        drop.y += drop.speed;
+        if (drop.y > height) {
+          drop.y = 0;
+          drop.x = Math.random() * width;
+        }
+      }
+    }
+
+    function animateRain() {
+      drawRain();
+      requestAnimationFrame(animateRain);
+    }
+
+    window.addEventListener('resize', () => {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    });
+
+    createRaindrops(150);
+    animateRain();
+  </script>
+</body>
+</html>
